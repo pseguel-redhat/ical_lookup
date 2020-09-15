@@ -14,26 +14,26 @@
     - name: Test with time = "{{ instant }}"
       debug:
         msg: "There's an event now:"
-      when: "{{ lookup('ical', url, instant=instant) }}"
+      when: lookup('ical', url, instant=instant)
       vars:
         instant: "{{ lookup('pipe','date -u +%Y-%m-%dT%H:%M:%S%z') }}"
  
     - name: Test with time = "{{ instant }}"
       debug:
         msg: "There's an event at  {{ lookup('ical', url, instant=instant) }}"
-      when: "{{ lookup('ical', url, instant=instant) }}"
+      when: lookup('ical', url, instant=instant) 
       vars:
         instant: "{{ lookup('pipe','date -v+1H -u +%Y-%m-%dT%H:%M:%S%z') }}"
 
     - name: Test with time = "{{ instant }}"
       debug:
         msg: "There's an event at {{ instant }}"
-      when: "{{ lookup('ical', url, instant=instant) }}"
+      when: lookup('ical', url, instant=instant) 
       vars:
         instant: "{{ lookup('pipe','date -v-30M -u +%Y-%m-%dT%H:%M:%S%z') }}"
        
     - name: Test with time = "{{ instant }} - Now but no instant passed to filter"
       debug:
         msg: "There's an event now: {{ lookup('ical', url )}}"
-      when: "{{ lookup('ical', url) }}"
+      when: lookup('ical', url)
        
