@@ -5,6 +5,9 @@ an event in an iCal calendar.
 
 Currently retrieves an url based iCal.
 
+The main use case is validating if a task should be executed if it conflicts 
+with an event such as a scheduled freeze. 
+
 
 ## Usage
 
